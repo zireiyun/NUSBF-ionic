@@ -1,0 +1,27 @@
+<ion-view title="blank" hide-nav-bar="true" hide-back-button="true" id="page9" class=" ">
+	<ion-content padding="true" class="manual-ios-statusbar-padding">
+		<button id="blank-button12" class=" button button-positive" ng-click="openPopover($event)">Open Popover</button>
+		<script id="my-popover.html" type="text/ng-template">
+			<style>.popover { height:270px; width: 270px; }</style>
+			<ion-popover-view>
+				<ion-content>
+					<div class = "row">
+						<a ui-sref="checkIn" id="menu-button3"><img src="img/christmas-lollipop.png" style="width: 70px; height: 70px;"/></a>
+						<a ui-sref="currentLocation" id="menu-button4"><img src="" style="width: 70px; height: 70px;"/>Current Location</a>
+						<a ui-sref="items" id="menu-button5"><img src="img/christmas-lollipop.png" style="width: 70px; height: 70px;"/>Items</a>
+					</div>
+					<div class = "row">
+						<a ui-sref="boss" id="menu-button6"><img src="img/christmas-lollipop.png" style="width: 70px; height: 70px;"/>Boss</a>
+						<a ui-sref="skills" id="menu-button7"><img src="img/christmas-lollipop.png" style="width: 70px; height: 70px;"/>Skills</a>
+						<a ui-sref="settings" id="menu-button8"><img src="img/christmas-lollipop.png" style="width: 70px; height: 70px;"/>Settings</a>
+					</div>
+					<div class = "row">
+						<a ui-sref="pvP" id="menu-button9"><img src="img/christmas-lollipop.png" style="width: 70px; height: 70px;"/>PvP</a>
+						<a ui-sref="credits" id="menu-button10"><img src="img/christmas-lollipop.png" style="width: 70px; height: 70px;"/>Credits</a>
+						<a ui-sref="blank" id="menu-button11"><img src="img/christmas-lollipop.png" style="width: 70px; height: 70px;"/>Blank</a>
+					</div>
+				</ion-content>
+			</ion-popover-view>
+		</script>
+	</ion-content>
+</ion-view>
