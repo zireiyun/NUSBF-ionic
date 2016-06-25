@@ -1,6 +1,8 @@
 angular.module('app.directives', [])
 
-.directive('blankDirective', [function(){
-
-}]);
-
+.directive('popoverMenu', [function(){
+	return{
+		restrict :'E',
+		templateUrl:'templates/my-popover.html'
+	};
+}])

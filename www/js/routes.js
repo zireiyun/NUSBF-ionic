@@ -48,8 +48,8 @@ angular.module('app.routes', [])
 
   .state('pvP', {
     url: '/page7',
-    templateUrl: 'templates/pvP.html',
-    controller: 'pvPCtrl'
+    templateUrl: 'templates/PvP.html',
+    controller: 'PvPCtrl'
   })
 
   .state('credits', {
@@ -63,13 +63,7 @@ angular.module('app.routes', [])
     templateUrl: 'templates/blank.html',
     controller: 'blankCtrl'
   })
-
-  .state('menu', {
-    url: '/page10',
-    templateUrl: 'templates/menu.html',
-    controller: 'menuCtrl'
-  })
-
+  
 $urlRouterProvider.otherwise('/page1')
 
   
