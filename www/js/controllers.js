@@ -2,9 +2,18 @@ angular.module('app.controllers', [])
   
 .controller('checkInCtrl', function($scope, $ionicPopover) {
 
+
   // .fromTemplate() method
   var template = '<ion-popover-view><ion-header-bar> <h1 class="title">My Popover Title</h1> </ion-header-bar> <ion-content> Hello! </ion-content></ion-popover-view>';
 
+  if (navigator.geolocation) {
+  	navigator.geolocation.getCurrentPosition(function(position){
+  		$scope.$apply(function(){
+  			$scope.position = position;
+  		});
+  	});
+  }
+  
   $scope.popover = $ionicPopover.fromTemplate(template, {
     scope: $scope
   });
