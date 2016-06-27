@@ -1,6 +1,6 @@
 <ion-view title="PvP" hide-nav-bar="true" hide-back-button="true" id="page7" class=" ">
-    <ion-content padding="true" class="manual-ios-statusbar-padding">
-		<button class="button button-positive" ng-click="openPopover($event)">Menu</button>
+    <ion-content padding="false" class="">
+		<button class="button button-positive" ng-click="openPopover($event)" style="display: inline-block; margin-top: 15px; margin-left:15px;">Menu</button>
 		<script id="my-popover.html" type="text/ng-template">
 			<style>.popover {height:280px; width: 280px; background-color: #fbfdfd;}</style>
 			<ion-popover-view>
@@ -11,7 +11,7 @@
 						<div style="width: 10px;"></div>
 						<a ui-sref="skills" id="menu-button7" ng-click="closePopover($event)"><img src="img/Skills.png" style="width: 80px; height: 80px;"/></a>
 						<div style="width: 10px;"></div>
-						<a ui-sref="currentLocation" id="menu-button4" ng-click="closePopover($event)"><img src="img/location.png" style="width: 80px; height: 80px;"/></a>
+						<a ui-sref="currentLocation" id="menu-button4" ng-click="closePopover($event)"><img src="img/stats.png" style="width: 80px; height: 80px;"/></a>
 					</div>
 					<div class = "row">
 						<div style="width: 5px;"></div>
