@@ -10,10 +10,11 @@ angular.module('app.controllers', [])
   	navigator.geolocation.getCurrentPosition(function(position){
   		$scope.$apply(function(){
   			$scope.position = position;
+  			$scope.latlon = position.coords.latitude+','+position.coords.longitude;
   		});
   	});
   }
-  
+
   $scope.popover = $ionicPopover.fromTemplate(template, {
     scope: $scope
   });
