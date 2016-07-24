@@ -1,15 +1,55 @@
-angular.module('app.controllers', [])
+angular.module('app.controllers', ['ngCordova'])
 
-.controller('checkInCtrl', function($scope, $ionicPopover) {
+.controller('checkInCtrl', function($ionicPlatform, $scope, $ionicPopover, $http, $cordovaGeolocation) {
 
   if (navigator.geolocation) {
   	navigator.geolocation.getCurrentPosition(function(position){
   		$scope.$apply(function(){
   			$scope.position = position;
-  			$scope.latlon = position.coords.latitude+','+position.coords.longitude;
-  		});
+        $scope.latlon = position.coords.latitude+','+position.coords.longitude;
+      });
   	});
-  }
+  };
+
+  var posOptions = {timeout: 10000, enableHighAccuracy: false};
+  $ionicPlatform.ready(function() {
+    $cordovaGeolocation
+    .getCurrentPosition(posOptions)
+    .then(function (position) {
+      var lat  = position.coords.latitude;
+      var long = position.coords.longitude;
+      $http({
+        method : "GET",
+        url : "http://nuslivinglab.nus.edu.sg/api_dev/api/Nearby?lat="+lat+"&lon="+lon+"&radius=200&category=building&num=1"
+      }).then(function mySucces(response) {
+        $scope.code = response.code;
+      }, function myError(response) {
+        $scope.code = response;
+      });
+
+    }, function(err) {
+      // error
+    });
+  })
+
+
+  
+
+
+/*
+  $scope.getData = function() {
+    $http.get('http://nuslivinglab.nus.edu.sg/api_dev/api/Nearby?lat='+local.coords.latitude+'&lon='+local.coords.longitude+'&radius=20000&category=building&output=json&num=1')
+    .success(function(data) {
+      var code = data[0].code;
+      $scope.code = data[0].code;
+      console.log('yoyo');
+    })
+    .error(function(data) {
+      alert("ERROR");
+      console.log('fail');
+    });
+  };
+  */
 
 })
 
