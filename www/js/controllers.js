@@ -3,6 +3,7 @@ angular.module('app.controllers', ['ngCordova'])
 .controller('checkInCtrl', function($ionicPlatform, $scope, $ionicPopover, $http, $cordovaGeolocation) {
 
   var posOptions = {timeout: 10000, enableHighAccuracy: false};
+  $scope.noInternet = true;
   $ionicPlatform.ready(function() {
     $cordovaGeolocation
     .getCurrentPosition(posOptions)
@@ -13,6 +14,7 @@ angular.module('app.controllers', ['ngCordova'])
         method : "GET",
         url : "http://nuslivinglab.nus.edu.sg/api_dev/api/Nearby?lat="+lat+"&lon="+lon+"&radius=200&category=building&output=json&num=1"
       }).then(function mySucces(response) {
+        $scope.noInternet = false;
         if (response.data[0] == null){$scope.area = "home";}
         else{
           $scope.name = response.data[0].name;
@@ -121,27 +123,12 @@ angular.module('app.controllers', ['ngCordova'])
         else {$scope.uto = true;}
 
       }, function myError(response) {
-        $scope.code = "error";
+        // error
       });
 }, function(err) {
       // error
     });
 })
-
-/*
-  $scope.getData = function() {
-    $http.get('http://nuslivinglab.nus.edu.sg/api_dev/api/Nearby?lat='+local.coords.latitude+'&lon='+local.coords.longitude+'&radius=20000&category=building&output=json&num=1')
-    .success(function(data) {
-      var code = data[0].code;
-      $scope.code = data[0].code;
-      console.log('yoyo');
-    })
-    .error(function(data) {
-      alert("ERROR");
-      console.log('fail');
-    });
-  };
-  */
 
 })
 
