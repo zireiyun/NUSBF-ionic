@@ -3,7 +3,6 @@ angular.module('app.controllers', ['ngCordova'])
 .controller('checkInCtrl', function($ionicPlatform, $scope, $ionicPopover, $http, $cordovaGeolocation) {
 
   var posOptions = {timeout: 10000, enableHighAccuracy: false};
-  $scope.noInternet = true;
   $ionicPlatform.ready(function() {
     $cordovaGeolocation
     .getCurrentPosition(posOptions)
@@ -123,10 +122,10 @@ angular.module('app.controllers', ['ngCordova'])
         else {$scope.uto = true;}
 
       }, function myError(response) {
-        // error
+        $scope.noInternet = true;
       });
 }, function(err) {
-      // error
+      $scope.noInternet = true;
     });
 })
 
