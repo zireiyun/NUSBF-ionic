@@ -17,24 +17,19 @@ angular.module('app.controllers', ['ngCordova'])
     .getCurrentPosition(posOptions)
     .then(function (position) {
       var lat  = position.coords.latitude;
-      var long = position.coords.longitude;
+      var lon = position.coords.longitude;
       $http({
         method : "GET",
-        url : "http://nuslivinglab.nus.edu.sg/api_dev/api/Nearby?lat="+lat+"&lon="+lon+"&radius=200&category=building&num=1"
+        url : "http://nuslivinglab.nus.edu.sg/api_dev/api/Nearby?lat="+lat+"&lon="+lon+"&radius=20000&category=building&output=json&num=1"
       }).then(function mySucces(response) {
-        $scope.code = response.code;
+        $scope.code = response.data[0].code;
       }, function myError(response) {
-        $scope.code = response;
+        $scope.code = "response";
       });
-
     }, function(err) {
       // error
     });
   })
-
-
-  
-
 
 /*
   $scope.getData = function() {
