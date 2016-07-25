@@ -2,15 +2,6 @@ angular.module('app.controllers', ['ngCordova'])
 
 .controller('checkInCtrl', function($ionicPlatform, $scope, $ionicPopover, $http, $cordovaGeolocation) {
 
-  if (navigator.geolocation) {
-  	navigator.geolocation.getCurrentPosition(function(position){
-  		$scope.$apply(function(){
-  			$scope.position = position;
-        $scope.latlon = position.coords.latitude+','+position.coords.longitude;
-      });
-  	});
-  };
-
   var posOptions = {timeout: 10000, enableHighAccuracy: false};
   $ionicPlatform.ready(function() {
     $cordovaGeolocation
@@ -20,16 +11,122 @@ angular.module('app.controllers', ['ngCordova'])
       var lon = position.coords.longitude;
       $http({
         method : "GET",
-        url : "http://nuslivinglab.nus.edu.sg/api_dev/api/Nearby?lat="+lat+"&lon="+lon+"&radius=20000&category=building&output=json&num=1"
+        url : "http://nuslivinglab.nus.edu.sg/api_dev/api/Nearby?lat="+lat+"&lon="+lon+"&radius=200&category=building&output=json&num=1"
       }).then(function mySucces(response) {
-        $scope.code = response.data[0].code;
+        if (response.data[0] == null){$scope.area = "home";}
+        else{
+          $scope.name = response.data[0].name;
+
+          var code = response.data[0].code;
+          var firstTwo = code.charAt(0) + code.charAt(1);
+
+          if (firstTwo == "LT"){
+            var num = code.slice(1);
+            if (num == "7A"){$scope.area = "eng";}
+            else{
+              num = parseInt(num);
+              if (num<=7){$scope.area = "eng";}
+              else if (num<=15){$scope.area = "art";}
+              else if (num<=17){$scope.area = "com";}
+              else if (num<=19){$scope.area = "biz";}
+              else {$scope.area = "sci";}
+            }
+          }
+          else if(code == "THE DECK"){$scope.area = "art";}
+          else if(code == "THE TERRACE"){$scope.area = "com";}
+          else if(code == "CELC"){$scope.area = "des";}
+          else if(code == "CELS"){$scope.area = "sci";}
+          else {
+            switch (firstTwo){
+              case 'AS' : $scope.area = "art"; break;
+              case 'BI' : $scope.area = "biz"; break;
+              case 'CO' : $scope.area = "com"; break;
+              case 'SD' : $scope.area = "des"; break;
+              case 'UT' : $scope.area = "uto"; break;
+              case 'S1' : $scope.area = "sci"; break;
+              case 'MD' : $scope.area = "sci"; break;
+              case 'CH' : $scope.area = "neu"; break;
+              case 'SH' : $scope.area = "neu"; break;
+              case 'SR' : $scope.area = "neu"; break;
+              case 'UH' : $scope.area = "neu"; break;
+              case 'KR' : $scope.area = "neu"; break;
+              case 'H1' : $scope.area = "neu"; break;
+              case 'H3' : $scope.area = "neu"; break;
+              case 'H4' : $scope.area = "neu"; break;
+              case 'H5' : $scope.area = "neu"; break;
+              case 'H6' : $scope.area = "neu"; break;
+              case 'H7' : $scope.area = "neu"; break;
+              case 'H8' : $scope.area = "neu"; break;
+              case 'HS' : $scope.area = "biz"; break;
+              case 'EW' : $scope.area = "eng"; break;
+              case 'ED' : $scope.area = "uto"; break;
+              case 'BB' : $scope.area = "law"; break;
+              case 'I3' : $scope.area = "com"; break;
+              case 'IS' : $scope.area = "com"; break;
+              case 'SS' : $scope.area = "com"; break;
+              case 'PG' : $scope.area = "neu"; break;
+              case 'OE' : $scope.area = "art"; break;
+              case 'SF' : $scope.area = "biz"; break;
+              case 'CC' : $scope.area = "eng"; break;
+              case 'E ' : $scope.area = "eng"; break;
+              case 'E1' : $scope.area = "eng"; break;
+              case 'E2' : $scope.area = "eng"; break;
+              case 'E3' : $scope.area = "eng"; break;
+              case 'E4' : $scope.area = "eng"; break;
+              case 'E5' : $scope.area = "eng"; break;
+              case 'EA' : $scope.area = "eng"; break;
+              case 'MA' : $scope.area = "eng"; break;
+              case 'TE' : $scope.area = "eng"; break;
+              case 'VI' : $scope.area = "eng"; break;
+              case 'LK' : $scope.area = "law"; break;
+              case 'OT' : $scope.area = "law"; break;
+              case 'VT' : $scope.area = "art"; break;
+              case 'DS' : $scope.area = "sci"; break;
+              case 'S2' : $scope.area = "sci"; break;
+              case 'S3' : $scope.area = "sci"; break;
+              case 'S4' : $scope.area = "sci"; break;
+              case 'S5' : $scope.area = "sci"; break;
+              case 'S6' : $scope.area = "sci"; break;
+              case 'S7' : $scope.area = "sci"; break;
+              case 'S8' : $scope.area = "sci"; break;
+              case 'S9' : $scope.area = "sci"; break;
+              case 'FO' : $scope.area = "sci"; break;
+              case 'FR' : $scope.area = "sci"; break;
+              case 'CR' : $scope.area = "uto"; break;
+              default   : $scope.area = "neu"; break;
+            }
+          }
+        }
+
+        $scope.art = false;
+        $scope.biz = false;
+        $scope.com = false;
+        $scope.des = false;
+        $scope.eng = false;
+        $scope.law = false;
+        $scope.neu = false;
+        $scope.sci = false;
+        $scope.uto = false;
+        $scope.home = false;
+
+        if ($scope.area == "home"){$scope.home = true;}
+        else if ($scope.area == "art"){$scope.art = true;}
+        else if ($scope.area == "biz"){$scope.biz = true;}
+        else if ($scope.area == "com"){$scope.com = true;}
+        else if ($scope.area == "des"){$scope.des = true;}
+        else if ($scope.area == "eng"){$scope.eng = true;}
+        else if ($scope.area == "law"){$scope.law= true;}
+        else if ($scope.area == "neu"){$scope.neu = true;}
+        else if ($scope.area == "sci"){$scope.sci = true;}
+        else {$scope.uto = true;}
+
       }, function myError(response) {
-        $scope.code = "response";
+        $scope.code = "error";
       });
-    }, function(err) {
+}, function(err) {
       // error
     });
-  })
+})
 
 /*
   $scope.getData = function() {

@@ -1,10 +1,30 @@
 <ion-view title="Check-in" hide-nav-bar="true" hide-back-button="true" id="page1" class=" " style = "background-image:url(img/background/colbalt.png)">
-    <ion-content padding="true" class="manual-ios-statusbar-padding">
-        <img style="width:99%;" src="img/name.png"/>
-        <div style="width:250px; height:250px; display:block; background-color:#506EFF; border-radius:100%; margin-top: 5px; margin: auto auto;"><img style=" height:150px; width:150px; display: inline-block; margin-left: 50px; margin-top:50px;" src="img/location/arts.png"></div>
-        <h2 style=" color:white; text-align: center;"> Arts </h2>
-        <h2> {{ latlon }} </h2> 
-        <h5> {{ code }} </h5>
-        <a ui-sref="currentLocation" id="checkIn-button1" class=" button button-positive  button-block ">Check In </a>
-    </ion-content>
+	<ion-content padding="true" class="manual-ios-statusbar-padding">
+		<img style="width:99%;" src="img/name.png"/>
+		<div style="width:250px; height:250px; display:block; background-color:#506EFF; border-radius:100%; margin-top: 5px; margin: auto auto;">
+		<img ng-if = art style = "height:150px; width:150px; display: inline-block; margin-left: 50px; margin-top:50px;" src="img/location/arts.png">
+		<img ng-if = biz style = "height:150px; width:150px; display: inline-block; margin-left: 50px; margin-top:50px;" src="img/location/business.png">
+		<img ng-if = com style = "height:150px; width:150px; display: inline-block; margin-left: 50px; margin-top:50px;" src="img/location/computing.png">
+		<img ng-if = des style = "height:150px; width:150px; display: inline-block; margin-left: 50px; margin-top:50px;" src="img/location/design.png">
+		<img ng-if = eng style = "height:150px; width:150px; display: inline-block; margin-left: 50px; margin-top:50px;" src="img/location/engine.png">
+		<img ng-if = law style = "height:150px; width:150px; display: inline-block; margin-left: 50px; margin-top:50px;" src="img/location/law.png">
+		<img ng-if = neu style = "height:150px; width:150px; display: inline-block; margin-left: 50px; margin-top:50px;" src="img/location/neutral.png">
+		<img ng-if = sci style = "height:150px; width:150px; display: inline-block; margin-left: 50px; margin-top:50px;" src="img/location/science.png">
+		<img ng-if = uto style = "height:150px; width:150px; display: inline-block; margin-left: 50px; margin-top:50px;" src="img/location/utown.png">
+		<img ng-if = home style = "height:150px; width:150px; display: inline-block; margin-left: 60px; margin-top:50px;" src="img/location/home.png">
+		</div>
+		<h3 ng-if = home style=" color:white; text-align: center;"> Away from NUS </h3>
+		<h3 ng-if = art style=" color:white; text-align: center;"> Arts </h3>
+		<h3 ng-if = biz style=" color:white; text-align: center;"> Business School </h3>
+		<h3 ng-if = com style=" color:white; text-align: center;"> Computing </h3>
+		<h3 ng-if = des style=" color:white; text-align: center;"> SDE </h3>
+		<h3 ng-if = eng style=" color:white; text-align: center;"> Engineering </h3>
+		<h3 ng-if = law style=" color:white; text-align: center;"> Bukit Timah Campus </h3>
+		<h3 ng-if = neu style=" color:white; text-align: center;"> Neutral Grounds </h3>
+		<h3 ng-if = sci style=" color:white; text-align: center;"> Science </h3>
+		<h3 ng-if = uto style=" color:white; text-align: center;"> Utown </h3>
+		<h5 style=" color:white; text-align: center;"> {{ name }} </h5>
+		<h5 ng-if = home style=" color:white; text-align: center;"> No items or points will be received </h5>
+		<a ui-sref="currentLocation" id="checkIn-button1" class=" button button-positive  button-block" style="margin-top:20px;">Check In </a>
+	</ion-content>
 </ion-view>
