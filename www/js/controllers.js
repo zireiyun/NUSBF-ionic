@@ -125,8 +125,8 @@ angular.module('app.controllers', ['ngCordova'])
         $scope.noInternet = true;
       });
 }, function(err) {
-      $scope.noInternet = true;
-    });
+  $scope.noInternet = true;
+});
 })
 
 })
