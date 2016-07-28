@@ -1,37 +1,73 @@
-<ion-view title="Current Location" hide-nav-bar="true" hide-back-button="true" id="page2" class=" " style = "background-image:url(img/background/yellow.png)">
-	<ion-content padding="false" class="">
-		<button class="button button-positive" ng-click="openPopover($event)" style="display: inline-block; margin-top: 15px; margin-left:15px;">Menu</button>
-		<script id="my-popover.html" type="text/ng-template">
-			<style>.popover {height:280px; width: 280px; background-color: #fbfdfd;}</style>
-			<ion-popover-view>
-				<ion-content>
-					<div class = "row">
-						<div style="width: 5px;"></div>
-						<a ui-sref="items" id="menu-button5" ng-click="closePopover($event)"><img src="img/Items.png" style="width: 80px; height: 80px;"/></a>
-						<div style="width: 10px;"></div>
-						<a ui-sref="skills" id="menu-button7" ng-click="closePopover($event)"><img src="img/Skills.png" style="width: 80px; height: 80px;"/></a>
-						<div style="width: 10px;"></div>
-						<a ui-sref="currentLocation" id="menu-button4" ng-click="closePopover($event)"><img src="img/stats.png" style="width: 80px; height: 80px;"/></a>
-					</div>
-					<div class = "row">
-						<div style="width: 5px;"></div>
-						<a ui-sref="pvP" id="menu-button9" ng-click="closePopover($event)"><img src="img/Battle.png" style="width: 80px; height: 80px;"/></a>
-						<div style="width: 10px;"></div>
-						<a ui-sref="checkIn" id="menu-button3" ng-click="closePopover($event)"><img src="img/location.png" style="width: 80px; height: 80px; "/></a>
-						<div style="width: 10px;"></div>
-						<a ui-sref="boss" id="menu-button6" ng-click="closePopover($event)"><img src="img/Boss.png" style="width: 80px; height: 80px;"/></a>
-					</div>
-					<div class = "row">
-						<div style="width: 5px;"></div>
-						<a ui-sref="settings" id="menu-button8" ng-click="closePopover($event)"><img src="img/Settings.png" style="width: 80px; height: 80px;"/></a>
-						<div style="width: 10px;"></div>
-						<a ui-sref="blank" id="menu-button11" ng-click="closePopover($event)"><img src="img/mystery.png" style="width: 80px; height: 80px;"/></a>
-						<div style="width: 10px;"></div>
-						<a ui-sref="credits" id="menu-button10" ng-click="closePopover($event)"><img src="img/Credits.png" style="width: 80px; height: 80px;"/></a>
-					</div>
-				</ion-content>
-			</ion-popover-view>
-		</script>
-		<img style="width:95%; margin-left:7px; margin-top:10px;" src="img/com.jpg"/>
+<ion-view title="Current Location" hide-nav-bar="true" hide-back-button="true" id="page2" class=" " style = "background-image:url(img/background/yellow.png)" padding="false">
+	<button class="button button-positive" ng-click="openPopover($event)" style="display: inline-block; margin-top: 15px; margin-left:15px;">Menu</button>
+	<script id="my-popover.html" type="text/ng-template">
+		<style>.popover {height:280px; width: 280px; background-color: #fbfdfd;}</style>
+		<ion-popover-view>
+			<ion-content>
+				<div class = "row">
+					<div style="width: 5px;"></div>
+					<a ui-sref="items" id="menu-button5" ng-click="closePopover($event)"><img src="img/Items.png" style="width: 80px; height: 80px;"/></a>
+					<div style="width: 10px;"></div>
+					<a ui-sref="skills" id="menu-button7" ng-click="closePopover($event)"><img src="img/Skills.png" style="width: 80px; height: 80px;"/></a>
+					<div style="width: 10px;"></div>
+					<a ui-sref="currentLocation" id="menu-button4" ng-click="closePopover($event)"><img src="img/stats.png" style="width: 80px; height: 80px;"/></a>
+				</div>
+				<div class = "row">
+					<div style="width: 5px;"></div>
+					<a ui-sref="pvP" id="menu-button9" ng-click="closePopover($event)"><img src="img/Battle.png" style="width: 80px; height: 80px;"/></a>
+					<div style="width: 10px;"></div>
+					<a ui-sref="checkIn" id="menu-button3" ng-click="closePopover($event)"><img src="img/location.png" style="width: 80px; height: 80px; "/></a>
+					<div style="width: 10px;"></div>
+					<a ui-sref="boss" id="menu-button6" ng-click="closePopover($event)"><img src="img/Boss.png" style="width: 80px; height: 80px;"/></a>
+				</div>
+				<div class = "row">
+					<div style="width: 5px;"></div>
+					<a ui-sref="settings" id="menu-button8" ng-click="closePopover($event)"><img src="img/Settings.png" style="width: 80px; height: 80px;"/></a>
+					<div style="width: 10px;"></div>
+					<a ui-sref="blank" id="menu-button11" ng-click="closePopover($event)"><img src="img/mystery.png" style="width: 80px; height: 80px;"/></a>
+					<div style="width: 10px;"></div>
+					<a ui-sref="credits" id="menu-button10" ng-click="closePopover($event)"><img src="img/Credits.png" style="width: 80px; height: 80px;"/></a>
+				</div>
+			</ion-content>
+		</ion-popover-view>
+	</script>
+	<ion-content padding="false" class="has-footer" style=" margin-top: 80px; margin-right: 5px;  margin-left: 8px;">
+		<div style="border-radius:8px; background-color:rgba(255, 255, 255, 0.5); border: 3px solid #A0522D; padding:1px; width:81%; display:inline-block; padding-left:5px; margin-bottom: 8px;">
+		<strong>{{area}}</strong><br>
+		{{name}}
+		
+		</div>
+		<button class= "button button-positive icon ion-refresh" ng-click="refresh()"></button>
+		<img style = "margin-left: 4px;" ng-src={{map}}>
+		<div style="border-radius:8px; background-color:rgba(255, 255, 255, 0.5); border: 3px solid #A0522D; padding:1px; width:100%; display:inline-block; padding-left:5px; margin-top: 3px; font-size: 110%;">
+		<div class="row">
+          <div class="col-33" style="padding:3px;">
+            Arts<br>
+            <strong>0</strong>/18
+          </div>
+          <div class="col-33" style="padding:3px;">
+            Biz<br>
+            <strong>0</strong>/6
+          </div>
+          <div class="col-33" style="padding:3px;">
+            Com<br>
+            <strong>0</strong>/8
+          </div>          
+        </div>
+        <div class="row">
+          <div class="col-33" style="padding:3px;">
+            Design<br>
+            <strong>0</strong>/4
+          </div>
+          <div class="col-33" style="padding:3px;">
+            Engine<br>
+            <strong>0</strong>/24
+          </div>
+          <div class="col-33" style="padding:3px;">
+            Science<br>
+            <strong>0</strong>/51
+          </div>          
+        </div>
+        </div>     
 	</ion-content>
 </ion-view>
