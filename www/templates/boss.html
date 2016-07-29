@@ -1,40 +1,41 @@
 <ion-view title="Boss" hide-nav-bar="true" hide-back-button="true" id="page4" class=" " style = "background-image:url(img/background/grey.png)" padding="false">
-	
-	<button class="button button-positive" ng-click="openPopover($event)" style="display: inline-block; margin-top: 15px; margin-left:15px;">Menu</button>
-	<img style="display: inline-block; float:right; height:45px;  margin-top: 15px;  margin-right: 15px;" src="img/vampire.png">
-	<div style="display: inline-block; float:right; font-size:40px; margin-top:25px;">Boss</div>
-	<script id="my-popover.html" type="text/ng-template">
-		<style>.popover {height:280px; width: 280px; background-color: #fbfdfd;}</style>
-		<ion-popover-view>
-			<ion-content>
-				<div class = "row">
-					<div style="width: 5px;"></div>
-					<a ui-sref="items" id="menu-button5" ng-click="closePopover($event)"><img src="img/Items.png" style="width: 80px; height: 80px;"/></a>
-					<div style="width: 10px;"></div>
-					<a ui-sref="skills" id="menu-button7" ng-click="closePopover($event)"><img src="img/Skills.png" style="width: 80px; height: 80px;"/></a>
-					<div style="width: 10px;"></div>
-					<a ui-sref="currentLocation" id="menu-button4" ng-click="closePopover($event)"><img src="img/stats.png" style="width: 80px; height: 80px;"/></a>
-				</div>
-				<div class = "row">
-					<div style="width: 5px;"></div>
-					<a ui-sref="pvP" id="menu-button9" ng-click="closePopover($event)"><img src="img/Battle.png" style="width: 80px; height: 80px;"/></a>
-					<div style="width: 10px;"></div>
-					<a ui-sref="checkIn" id="menu-button3" ng-click="closePopover($event)"><img src="img/location.png" style="width: 80px; height: 80px; "/></a>
-					<div style="width: 10px;"></div>
-					<a ui-sref="boss" id="menu-button6" ng-click="closePopover($event)"><img src="img/Boss.png" style="width: 80px; height: 80px;"/></a>
-				</div>
-				<div class = "row">
-					<div style="width: 5px;"></div>
-					<a ui-sref="settings" id="menu-button8" ng-click="closePopover($event)"><img src="img/Settings.png" style="width: 80px; height: 80px;"/></a>
-					<div style="width: 10px;"></div>
-					<a ui-sref="blank" id="menu-button11" ng-click="closePopover($event)"><img src="img/mystery.png" style="width: 80px; height: 80px;"/></a>
-					<div style="width: 10px;"></div>
-					<a ui-sref="credits" id="menu-button10" ng-click="closePopover($event)"><img src="img/Credits.png" style="width: 80px; height: 80px;"/></a>
-				</div>
-			</ion-content>
-		</ion-popover-view>
-	</script>
-	<ion-content  padding="false" class="has-footer" style=" margin-top: 70px; margin-right: 5px;  margin-left: 8px;">
-	<img style = "width:100%; border-radius:8px;" src="http://vignette2.wikia.nocookie.net/americanmcgeesalice/images/0/00/The_Art_of_Alice_Madness_Returns_cover.png/revision/latest?cb=20130823073308"/>
+	<ion-content  padding="false">
+		<button class="button button-positive" ng-click="openPopover($event)" style="display: inline-block; margin-top: 15px; margin-left:15px;">Menu</button>
+		<img style="display: inline-block; float:right; height:45px;  margin-top: 15px;  margin-right: 15px;" src="img/vampire.png">
+		<div style="display: inline-block; float:right; font-size:40px; margin-top:25px;">Boss</div>
+		<script id="my-popover.html" type="text/ng-template">
+			<style>.popover {height:280px; width: 280px; background-color: #fbfdfd;}</style>
+			<ion-popover-view>
+				<ion-content>
+					<div class = "row">
+						<div style="width: 5px;"></div>
+						<a ui-sref="items" id="menu-button5" ng-click="closePopover($event)"><img src="img/Items.png" style="width: 80px; height: 80px;"/></a>
+						<div style="width: 10px;"></div>
+						<a ui-sref="skills" id="menu-button7" ng-click="closePopover($event)"><img src="img/Skills.png" style="width: 80px; height: 80px;"/></a>
+						<div style="width: 10px;"></div>
+						<a ui-sref="currentLocation" id="menu-button4" ng-click="closePopover($event)"><img src="img/stats.png" style="width: 80px; height: 80px;"/></a>
+					</div>
+					<div class = "row">
+						<div style="width: 5px;"></div>
+						<a ui-sref="pvP" id="menu-button9" ng-click="closePopover($event)"><img src="img/Battle.png" style="width: 80px; height: 80px;"/></a>
+						<div style="width: 10px;"></div>
+						<a ui-sref="checkIn" id="menu-button3" ng-click="closePopover($event)"><img src="img/location.png" style="width: 80px; height: 80px; "/></a>
+						<div style="width: 10px;"></div>
+						<a ui-sref="boss" id="menu-button6" ng-click="closePopover($event)"><img src="img/Boss.png" style="width: 80px; height: 80px;"/></a>
+					</div>
+					<div class = "row">
+						<div style="width: 5px;"></div>
+						<a ui-sref="settings" id="menu-button8" ng-click="closePopover($event)"><img src="img/Settings.png" style="width: 80px; height: 80px;"/></a>
+						<div style="width: 10px;"></div>
+						<a ui-sref="blank" id="menu-button11" ng-click="closePopover($event)"><img src="img/mystery.png" style="width: 80px; height: 80px;"/></a>
+						<div style="width: 10px;"></div>
+						<a ui-sref="credits" id="menu-button10" ng-click="closePopover($event)"><img src="img/Credits.png" style="width: 80px; height: 80px;"/></a>
+					</div>
+				</ion-content>
+			</ion-popover-view>
+		</script>
+		<div style=" margin-top: 15px; margin-right: 8px;  margin-left: 8px;">
+		<img style = "width:100%; border-radius:8px; border: 3px solid #000000; padding:9px; background-color:#FFFFFF;" src="http://dhost1.mmomiss.com/upload/userfiles/images/725cc0e90d48ab34674181e3422e0943.png"/>
+		</div>
 	</ion-content>
 </ion-view>
