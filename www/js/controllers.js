@@ -136,6 +136,7 @@ angular.module('app.controllers', ['ngCordova', 'ngStorage'])
   $sessionStorage, $ionicPlatform, $scope, $ionicPopover, $http, $cordovaGeolocation) {
 
   $scope.$storage = $localStorage;
+  $scope.remainingForages = 5;
 
   var posOptions = {timeout: 10000, enableHighAccuracy: false};
   
@@ -173,10 +174,9 @@ angular.module('app.controllers', ['ngCordova', 'ngStorage'])
   })
 
   $scope.forage = function($localStorage) {
-    if ($localStorage.todaysForages != 0) {
-      $localStorage.set(todaysForages, todaysForages - 1);
-      $scope.remainingForages = $localStorage.todaysForages;
-
+    $scope.remainingForages = $scope.remainingForages - 1;
+    if ($scope.remainingForages == 0) {
+      $scope.remainingForages = 5;
     }
   }
 
@@ -459,9 +459,9 @@ angular.module('app.controllers', ['ngCordova', 'ngStorage'])
   },
   {
     name : 'Java bean',
-    image: 'img/item/bag.png',
+    image: 'img/item/javabean.png',
     description: 'Not sure if coffee bean or Soccat poop..',
-    collected: false
+    collected: true
   },
   {
     name : 'Keyboard',
