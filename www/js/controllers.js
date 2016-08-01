@@ -111,7 +111,7 @@ angular.module('app.controllers', ['ngCordova', 'ngStorage']).run(function($root
     name : 'Java bean',
     image: 'img/item/javabean.png',
     description: 'Not sure if coffee bean or Soccat poop..',
-    collected: true
+    collected: false
   },
   {
     name : 'Keyboard',
@@ -488,7 +488,7 @@ angular.module('app.controllers', ['ngCordova', 'ngStorage']).run(function($root
 
   $scope.forage = function($localStorage) {
     $scope.remainingForages = $scope.remainingForages - 1;
-    $rootScope.items[0].collected = true;
+    $rootScope.items[18].collected = true;
     if ($scope.remainingForages == 0) {
       $scope.remainingForages = 5;
     }
