@@ -39,7 +39,7 @@ angular.module('app.controllers', ['ngCordova', 'ngStorage']).run(function($root
     name : 'Psychology Textbook',
     image: 'img/item/bag.png',
     description: '"The textbook is a monster", "memorising the whole textbook will give you that A", "they will test everything"',
-    collected: true
+    collected: false
   },
   {
     name : 'Yong Tau Fu tofu',
@@ -445,15 +445,26 @@ angular.module('app.controllers', ['ngCordova', 'ngStorage']).run(function($root
 
 })
 
-.controller('currentLocationCtrl', function( $localStorage,
+.controller('currentLocationCtrl', function($ionicPopup, $localStorage,
   $sessionStorage, $ionicPlatform, $scope, $ionicPopover, $http, $cordovaGeolocation, $rootScope) {
 
-  $scope.$storage = $localStorage;
-  $scope.remainingForages = 5;
+  var date = new Date();
+  var currentDate;
 
   var posOptions = {timeout: 10000, enableHighAccuracy: false};
   
   $ionicPlatform.ready(function() {
+
+    //$localStorage.$reset();
+
+    currentDate = date.getDate();
+
+    if($localStorage.date != currentDate){
+      $scope.remainingForages = 5
+      $localStorage.date = currentDate;
+      $localStorage.remainingForages = $scope.remainingForages;
+    }else{ $scope.remainingForages = $localStorage.remainingForages;}
+
     $cordovaGeolocation
     .getCurrentPosition(posOptions)
     .then(function (position) {
@@ -471,9 +482,9 @@ angular.module('app.controllers', ['ngCordova', 'ngStorage']).run(function($root
          $scope.name = response.data[0].name;
          var code = response.data[0].code;
          $scope.area = getArea(code);
-         $scope.map = "https://maps.googleapis.com/maps/api/staticmap?&size=300x200&maptype=roadmap&markers=color:blue%7Clabel:L%7C"+lat+","+lon+"&markers=color:red|label:N|"+response.data[0].lat+","+response.data[0].lon;
-         if (response.data[1]!=null)  {$scope.map = $scope.map + "&markers=color:green|label:N|"+response.data[1].lat+","+response.data[1].lon;}
-         if (response.data[2]!=null) {$scope.map = $scope.map + "&markers=color:green|label:N|"+response.data[2].lat+","+response.data[2].lon;}
+         $scope.map = "https://maps.googleapis.com/maps/api/staticmap?&size=300x200&maptype=roadmap&markers=color:blue%7Clabel:L%7C"+lat+","+lon+"&markers=color:green|label:1|"+response.data[0].lat+","+response.data[0].lon;
+         if (response.data[1]!=null)  {$scope.map = $scope.map + "&markers=color:green|label:2|"+response.data[1].lat+","+response.data[1].lon;}
+         if (response.data[2]!=null) {$scope.map = $scope.map + "&markers=color:green|label:3|"+response.data[2].lat+","+response.data[2].lon;}
        }
      }, function myError(response) {
       $scope.map = "https://maps.googleapis.com/maps/api/staticmap?&zoom=18&size=300x200&maptype=roadmap&markers=color:blue|label:L|"+lat+","+lon;
@@ -486,145 +497,160 @@ angular.module('app.controllers', ['ngCordova', 'ngStorage']).run(function($root
     });
   })
 
-  $scope.forage = function($localStorage) {
-    $scope.remainingForages = $scope.remainingForages - 1;
-    $rootScope.items[18].collected = true;
-    if ($scope.remainingForages == 0) {
-      $scope.remainingForages = 5;
-    }
-  }
-
-  $scope.refresh = function() {
-    $cordovaGeolocation
-    .getCurrentPosition(posOptions)
-    .then(function (position) {
-      var lat = position.coords.latitude;
-      var lon = position.coords.longitude;
-      $http({
-        method : "GET",
-        url : "http://nuslivinglab.nus.edu.sg/api_dev/api/Nearby?lat="+lat+"&lon="+lon+"&radius=200&category=building&output=json&num=3"
-      }).then(function mySucces(response) {
-        if (response.data[0] == null){
-          $scope.area = "Home";
-          $scope.name = "away from NUS~~~";
-          $scope.map = "https://maps.googleapis.com/maps/api/staticmap?&zoom=18&size=300x200&maptype=roadmap&markers=color:blue%7Clabel:L%7C"+lat+","+lon;
-        } else {
-         $scope.name = response.data[0].name;
-         var code = response.data[0].code;
-         $scope.area = getArea(code);
-         $scope.map = "https://maps.googleapis.com/maps/api/staticmap?&size=300x200&maptype=roadmap&markers=color:blue%7Clabel:L%7C"+lat+","+lon+"&markers=color:red|label:N|"+response.data[0].lat+","+response.data[0].lon;
-         if (response.data[1]!=null)  {$scope.map = $scope.map + "&markers=color:green|label:N|"+response.data[1].lat+","+response.data[1].lon;}
-         if (response.data[2]!=null) {$scope.map = $scope.map + "&markers=color:green|label:N|"+response.data[2].lat+","+response.data[2].lon;}
-       }
-     }, function myError(response) {
-      $scope.map = "https://maps.googleapis.com/maps/api/staticmap?&zoom=18&size=300x200&maptype=roadmap&markers=color:blue|label:L|"+lat+","+lon;
-      $scope.name = "away from NUS~~~"
-      $scope.area = "Home";
-    });
-    }, function(err) {
-      $scope.name = "away from NUS~~~"
-      $scope.area = "Home";
-    });
-  }
-
-  var getArea = function(code){
-    var firstTwo = code.charAt(0) + code.charAt(1);
-    var place;
-
-    if (firstTwo == "LT"){
-      var num = code.slice(1);
-      if (num == "7A"){place = "eng";}
-      else{
-        num = parseInt(num);
-        if (num<=7){place = "eng";}
-        else if (num<=15){place = "art";}
-        else if (num<=17){place = "com";}
-        else if (num<=19){place = "biz";}
-        else {place = "sci";}
-      }
-    }
-    else if(code == "THE DECK"){place = "art";}
-    else if(code == "THE TERRACE"){place = "com";}
-    else if(code == "CELC"){place = "des";}
-    else if(code == "CELS"){place = "sci";}
-    else {
-      switch (firstTwo){
-        case 'AS' : place = "art"; break;
-        case 'BI' : place = "biz"; break;
-        case 'CO' : place = "com"; break;
-        case 'SD' : place = "des"; break;
-        case 'UT' : place = "uto"; break;
-        case 'S1' : place = "sci"; break;
-        case 'MD' : place = "sci"; break;
-        case 'HS' : place = "biz"; break;
-        case 'EW' : place = "eng"; break;
-        case 'ED' : place = "uto"; break;
-        case 'BB' : place = "law"; break;
-        case 'I3' : place = "com"; break;
-        case 'IS' : place = "com"; break;
-        case 'SS' : place = "com"; break;
-        case 'OE' : place = "art"; break;
-        case 'SF' : place = "biz"; break;
-        case 'CC' : place = "eng"; break;
-        case 'E ' : place = "eng"; break;
-        case 'E1' : place = "eng"; break;
-        case 'E2' : place = "eng"; break;
-        case 'E3' : place = "eng"; break;
-        case 'E4' : place = "eng"; break;
-        case 'E5' : place = "eng"; break;
-        case 'EA' : place = "eng"; break;
-        case 'MA' : place = "eng"; break;
-        case 'TE' : place = "eng"; break;
-        case 'VI' : place = "eng"; break;
-        case 'LK' : place = "law"; break;
-        case 'OT' : place = "law"; break;
-        case 'VT' : place = "art"; break;
-        case 'DS' : place = "sci"; break;
-        case 'S2' : place = "sci"; break;
-        case 'S3' : place = "sci"; break;
-        case 'S4' : place = "sci"; break;
-        case 'S5' : place = "sci"; break;
-        case 'S6' : place = "sci"; break;
-        case 'S7' : place = "sci"; break;
-        case 'S8' : place = "sci"; break;
-        case 'S9' : place = "sci"; break;
-        case 'FO' : place = "sci"; break;
-        case 'FR' : place = "sci"; break;
-        case 'CR' : place = "uto"; break;
-        default   : place = "neu"; break;
-      }
-    }
-
-    if (place == "art"){
-      return "Faculty of Arts and Social Sciences"
-    }
-    else if (place == "biz"){
-      return "Business School"
-    }
-    else if (place == "com"){
-      return "School of Computing"
-    }
-    else if (place == "des"){
-      return "School of Design & Environment"
-    }
-    else if (place == "eng"){
-      return "Faculty of Engineering"
-    }
-    else if (place == "law"){
-      return "Bukit Timah Campus"
-    }
-    else if (place == "neu"){
-      return "Somewhere in NUS"
-    }
-    else if (place == "uto"){
-      return "University Town"
+  $scope.forage = function() {
+    if ($scope.remainingForages<=0){$scope.noForages = true;}
+    else if ($scope.remainingForages==5){
+      $scope.remainingForages = $scope.remainingForages - 1;
+      $localStorage.remainingForages = $scope.remainingForages;
+      $rootScope.items[18].collected = true;
+      newItem();
     }
     else{
-      return "Faculty of Science"
+      $scope.remainingForages = $scope.remainingForages - 1;
+      $localStorage.remainingForages = $scope.remainingForages;
     }
-
-
   }
+
+
+  var newItem = function() {
+   var newPopup = $ionicPopup.alert({
+    template: '<img style="display: block; margin: auto auto; height:80px; width:80px;" src="' + $rootScope.items[18].image + '"/>',
+     title: "New Item!!!" 
+   });
+ };
+
+
+ $scope.refresh = function() {
+  $cordovaGeolocation
+  .getCurrentPosition(posOptions)
+  .then(function (position) {
+    var lat = position.coords.latitude;
+    var lon = position.coords.longitude;
+    $http({
+      method : "GET",
+      url : "http://nuslivinglab.nus.edu.sg/api_dev/api/Nearby?lat="+lat+"&lon="+lon+"&radius=200&category=building&output=json&num=3"
+    }).then(function mySucces(response) {
+      if (response.data[0] == null){
+        $scope.area = "Home";
+        $scope.name = "away from NUS~~~";
+        $scope.map = "https://maps.googleapis.com/maps/api/staticmap?&zoom=18&size=300x200&maptype=roadmap&markers=color:blue%7Clabel:L%7C"+lat+","+lon;
+      } else {
+       $scope.name = response.data[0].name;
+       var code = response.data[0].code;
+       $scope.area = getArea(code);
+       $scope.map = "https://maps.googleapis.com/maps/api/staticmap?&size=300x200&maptype=roadmap&markers=color:blue%7Clabel:L%7C"+lat+","+lon+"&markers=color:red|label:N|"+response.data[0].lat+","+response.data[0].lon;
+       if (response.data[1]!=null)  {$scope.map = $scope.map + "&markers=color:green|label:N|"+response.data[1].lat+","+response.data[1].lon;}
+       if (response.data[2]!=null) {$scope.map = $scope.map + "&markers=color:green|label:N|"+response.data[2].lat+","+response.data[2].lon;}
+     }
+   }, function myError(response) {
+    $scope.map = "https://maps.googleapis.com/maps/api/staticmap?&zoom=18&size=300x200&maptype=roadmap&markers=color:blue|label:L|"+lat+","+lon;
+    $scope.name = "away from NUS~~~"
+    $scope.area = "Home";
+  });
+  }, function(err) {
+    $scope.name = "away from NUS~~~"
+    $scope.area = "Home";
+  });
+}
+
+var getArea = function(code){
+  var firstTwo = code.charAt(0) + code.charAt(1);
+  var place;
+
+  if (firstTwo == "LT"){
+    var num = code.slice(1);
+    if (num == "7A"){place = "eng";}
+    else{
+      num = parseInt(num);
+      if (num<=7){place = "eng";}
+      else if (num<=15){place = "art";}
+      else if (num<=17){place = "com";}
+      else if (num<=19){place = "biz";}
+      else {place = "sci";}
+    }
+  }
+  else if(code == "THE DECK"){place = "art";}
+  else if(code == "THE TERRACE"){place = "com";}
+  else if(code == "CELC"){place = "des";}
+  else if(code == "CELS"){place = "sci";}
+  else {
+    switch (firstTwo){
+      case 'AS' : place = "art"; break;
+      case 'BI' : place = "biz"; break;
+      case 'CO' : place = "com"; break;
+      case 'SD' : place = "des"; break;
+      case 'UT' : place = "uto"; break;
+      case 'S1' : place = "sci"; break;
+      case 'MD' : place = "sci"; break;
+      case 'HS' : place = "biz"; break;
+      case 'EW' : place = "eng"; break;
+      case 'ED' : place = "uto"; break;
+      case 'BB' : place = "law"; break;
+      case 'I3' : place = "com"; break;
+      case 'IS' : place = "com"; break;
+      case 'SS' : place = "com"; break;
+      case 'OE' : place = "art"; break;
+      case 'SF' : place = "biz"; break;
+      case 'CC' : place = "eng"; break;
+      case 'E ' : place = "eng"; break;
+      case 'E1' : place = "eng"; break;
+      case 'E2' : place = "eng"; break;
+      case 'E3' : place = "eng"; break;
+      case 'E4' : place = "eng"; break;
+      case 'E5' : place = "eng"; break;
+      case 'EA' : place = "eng"; break;
+      case 'MA' : place = "eng"; break;
+      case 'TE' : place = "eng"; break;
+      case 'VI' : place = "eng"; break;
+      case 'LK' : place = "law"; break;
+      case 'OT' : place = "law"; break;
+      case 'VT' : place = "art"; break;
+      case 'DS' : place = "sci"; break;
+      case 'S2' : place = "sci"; break;
+      case 'S3' : place = "sci"; break;
+      case 'S4' : place = "sci"; break;
+      case 'S5' : place = "sci"; break;
+      case 'S6' : place = "sci"; break;
+      case 'S7' : place = "sci"; break;
+      case 'S8' : place = "sci"; break;
+      case 'S9' : place = "sci"; break;
+      case 'FO' : place = "sci"; break;
+      case 'FR' : place = "sci"; break;
+      case 'CR' : place = "uto"; break;
+      default   : place = "neu"; break;
+    }
+  }
+
+  if (place == "art"){
+    return "Faculty of Arts and Social Sciences"
+  }
+  else if (place == "biz"){
+    return "Business School"
+  }
+  else if (place == "com"){
+    return "School of Computing"
+  }
+  else if (place == "des"){
+    return "School of Design & Environment"
+  }
+  else if (place == "eng"){
+    return "Faculty of Engineering"
+  }
+  else if (place == "law"){
+    return "Bukit Timah Campus"
+  }
+  else if (place == "neu"){
+    return "Somewhere in NUS"
+  }
+  else if (place == "uto"){
+    return "University Town"
+  }
+  else{
+    return "Faculty of Science"
+  }
+
+
+}
 
   // .fromTemplate() method
   var template = '<ion-popover-view><ion-header-bar> <h1 class="title">My Popover Title</h1> </ion-header-bar> <ion-content> Hello! </ion-content></ion-popover-view>';

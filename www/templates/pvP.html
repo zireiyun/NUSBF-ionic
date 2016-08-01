@@ -1,36 +1,55 @@
 <ion-view title="PvP" hide-nav-bar="true" hide-back-button="true" id="page7" class=" " style = "background-image:url(img/background/pink.png)">
-	<ion-content padding="false" class="">
-		<button class="button button-positive" ng-click="openPopover($event)" style="display: inline-block; margin-top: 15px; margin-left:15px;">Menu</button>
-		<script id="my-popover.html" type="text/ng-template">
-			<style>.popover {height:280px; width: 280px; background-color: #fbfdfd;}</style>
-			<ion-popover-view>
-				<ion-content>
-					<div class = "row">
-						<div style="width: 5px;"></div>
-						<a ui-sref="items" id="menu-button5" ng-click="closePopover($event)"><img src="img/menu/Items.png" style="width: 80px; height: 80px;"/></a>
-						<div style="width: 10px;"></div>
-						<a ui-sref="skills" id="menu-button7" ng-click="closePopover($event)"><img src="img/menu/Character.png" style="width: 80px; height: 80px;"/></a>
-						<div style="width: 10px;"></div>
-						<a ui-sref="currentLocation" id="menu-button4" ng-click="closePopover($event)"><img src="img/menu/stats.png" style="width: 80px; height: 80px;"/></a>
-					</div>
-					<div class = "row">
-						<div style="width: 5px;"></div>
-						<a ui-sref="pvP" id="menu-button9" ng-click="closePopover($event)"><img src="img/menu/Battle.png" style="width: 80px; height: 80px;"/></a>
-						<div style="width: 10px;"></div>
-						<a ui-sref="checkIn" id="menu-button3" ng-click="closePopover($event)"><img src="img/menu/location.png" style="width: 80px; height: 80px; "/></a>
-						<div style="width: 10px;"></div>
-						<a ui-sref="boss" id="menu-button6" ng-click="closePopover($event)"><img src="img/menu/Boss.png" style="width: 80px; height: 80px;"/></a>
-					</div>
-					<div class = "row">
-						<div style="width: 5px;"></div>
-						<a ui-sref="settings" id="menu-button8" ng-click="closePopover($event)"><img src="img/menu/Settings.png" style="width: 80px; height: 80px;"/></a>
-						<div style="width: 10px;"></div>
-						<a ui-sref="blank" id="menu-button11" ng-click="closePopover($event)"><img src="img/menu/Disclaimer.png" style="width: 80px; height: 80px;"/></a>
-						<div style="width: 10px;"></div>
-						<a ui-sref="credits" id="menu-button10" ng-click="closePopover($event)"><img src="img/menu/Credits.png" style="width: 80px; height: 80px;"/></a>
-					</div>
-				</ion-content>
-			</ion-popover-view>
-		</script>
+	<button class="button button-positive" ng-click="openPopover($event)" style="display: inline-block; margin-top: 15px; margin-left:15px;">Menu</button>
+	<div style="display: inline-block; float:right; font-size:40px; margin-top:25px; margin-right:15px;">How to Play</div>
+	<script id="my-popover.html" type="text/ng-template">
+		<style>.popover {height:280px; width: 280px; background-color: #fbfdfd;}</style>
+		<ion-popover-view>
+			<ion-content>
+				<div class = "row">
+					<div style="width: 5px;"></div>
+					<a ui-sref="items" id="menu-button5" ng-click="closePopover($event)"><img src="img/menu/Items.png" style="width: 80px; height: 80px;"/></a>
+					<div style="width: 10px;"></div>
+					<a ui-sref="skills" id="menu-button7" ng-click="closePopover($event)"><img src="img/menu/Character.png" style="width: 80px; height: 80px;"/></a>
+					<div style="width: 10px;"></div>
+					<a ui-sref="currentLocation" id="menu-button4" ng-click="closePopover($event)"><img src="img/menu/stats.png" style="width: 80px; height: 80px;"/></a>
+				</div>
+				<div class = "row">
+					<div style="width: 5px;"></div>
+					<a ui-sref="pvP" id="menu-button9" ng-click="closePopover($event)"><img src="img/menu/Battle.png" style="width: 80px; height: 80px;"/></a>
+					<div style="width: 10px;"></div>
+					<a ui-sref="checkIn" id="menu-button3" ng-click="closePopover($event)"><img src="img/menu/location.png" style="width: 80px; height: 80px; "/></a>
+					<div style="width: 10px;"></div>
+					<a ui-sref="boss" id="menu-button6" ng-click="closePopover($event)"><img src="img/menu/Boss.png" style="width: 80px; height: 80px;"/></a>
+				</div>
+				<div class = "row">
+					<div style="width: 5px;"></div>
+					<a ui-sref="settings" id="menu-button8" ng-click="closePopover($event)"><img src="img/menu/Settings.png" style="width: 80px; height: 80px;"/></a>
+					<div style="width: 10px;"></div>
+					<a ui-sref="blank" id="menu-button11" ng-click="closePopover($event)"><img src="img/menu/Disclaimer.png" style="width: 80px; height: 80px;"/></a>
+					<div style="width: 10px;"></div>
+					<a ui-sref="credits" id="menu-button10" ng-click="closePopover($event)"><img src="img/menu/Credits.png" style="width: 80px; height: 80px;"/></a>
+				</div>
+			</ion-content>
+		</ion-popover-view>
+	</script>
+	<ion-content padding="false" class="has-footer" style=" margin-top: 80px; margin-right: 5px;  margin-left: 5px;">
+		<div style="border-radius:8px; background-color:rgba(255, 255, 255, 0.5); border: 3px solid #662A48; padding:8px;">
+
+			<h4>Friendly guide to this App</h4>
+			
+			<p><strong>Check-in    <i class="ion-location"></i></strong><br>Just the starting page of the app. Nothing to see here!</p>
+
+			<p><strong>Items    <i class="ion-briefcase"></i></strong><br>Collect them all! Items may be found by "foraging" in the stats page with random chance and loot drops by boss.</p>
+
+			<p><strong>Stats    <i class="ion-fireball"></i></strong><br>Shows your map. Forage here for items. Forages are renewed to 5 a day. Visit new places for a chance to get more forages!</p>
+
+			<p><strong>Character    <i class="ion-happy"></i></strong><br>Shows your character's progress in the game and boost against boss. Boost are increased by number and type of items found!</p>
+
+			<p><strong>Boss    <i class="ion-bug"></i></strong><br>Boss will be spawned in a random game area. The 6 game areas are Arts, Business, Computing, SDE, Engineering and Science. You must be in the same area as the boss to fight it! Defeat the boss before the time limit to get items and more forages!</p>
+
+			<p><i class="ion-ios-heart"></i><i class="ion-ios-heart"></i><i class="ion-ios-heart"></i>    Thank you and enjoy     <i class="ion-ios-heart"></i><i class="ion-ios-heart"></i><i class="ion-ios-heart"></i></p>
+
+
+		</div>
 	</ion-content>
 </ion-view>
