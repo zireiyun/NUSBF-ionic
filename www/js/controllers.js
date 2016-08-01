@@ -1,5 +1,6 @@
 angular.module('app.controllers', ['ngCordova', 'ngStorage'])
 
+
 .controller('checkInCtrl', function($ionicPlatform, $scope, $ionicPopover, $http, $cordovaGeolocation) {
 
   var posOptions = {timeout: 10000, enableHighAccuracy: false};
@@ -170,6 +171,14 @@ angular.module('app.controllers', ['ngCordova', 'ngStorage'])
       $scope.area = "Mysterious Location";
     });
   })
+
+  $scope.forage = function($localStorage) {
+    if ($localStorage.todaysForages != 0) {
+      $localStorage.set(todaysForages, todaysForages - 1);
+      $scope.remainingForages = $localStorage.todaysForages;
+
+    }
+  }
 
   $scope.refresh = function() {
     $cordovaGeolocation
