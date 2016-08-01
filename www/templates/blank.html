@@ -1,13 +1,13 @@
-<ion-view title="blank" hide-nav-bar="true" hide-back-button="true" id="page9" class=" " style = "background-image:url(img/background/lavendar.png)">
-	<ion-content padding="false" class="">
-		<button class="button button-positive" ng-click="openPopover($event)" style="display: inline-block; margin-top: 15px; margin-left:15px;">Menu</button>
-		<img style="display: inline-block; float:right; height:45px;  margin-top: 15px;  margin-right: 15px;" src="img/christmas-lollipop.png">
-		<div style="display: inline-block; float:right; font-size:40px; margin-top:25px;">??</div>
-		<script id="my-popover.html" type="text/ng-template">
-			<style>.popover {height:280px; width: 280px; background-color: #fbfdfd;}</style>
-			<ion-popover-view>
-				<ion-content>
-									<div class = "row">
+<ion-view title="blank" hide-nav-bar="true" hide-back-button="true" id="page9" class=" " padding="false" style = "background-image:url(img/background/lavendar.png)">
+	
+	<button class="button button-positive" ng-click="openPopover($event)" style="display: inline-block; margin-top: 15px; margin-left:15px;">Menu</button>
+	<img style="display: inline-block; float:right; height:45px;  margin-top: 15px;  margin-right: 15px;" src="img/christmas-lollipop.png">
+	<div style="display: inline-block; float:right; font-size:40px; margin-top:25px;">Disclaimer</div>
+	<script id="my-popover.html" type="text/ng-template">
+		<style>.popover {height:280px; width: 280px; background-color: #fbfdfd;}</style>
+		<ion-popover-view>
+			<ion-content>
+				<div class = "row">
 					<div style="width: 5px;"></div>
 					<a ui-sref="items" id="menu-button5" ng-click="closePopover($event)"><img src="img/menu/Items.png" style="width: 80px; height: 80px;"/></a>
 					<div style="width: 10px;"></div>
@@ -31,8 +31,15 @@
 					<div style="width: 10px;"></div>
 					<a ui-sref="credits" id="menu-button10" ng-click="closePopover($event)"><img src="img/menu/Credits.png" style="width: 80px; height: 80px;"/></a>
 				</div>
-				</ion-content>
-			</ion-popover-view>
-		</script>
+			</ion-content>
+		</ion-popover-view>
+	</script>
+	<ion-content padding="false" class="has-footer" style=" margin-top: 80px; margin-right: 5px;  margin-left: 5px;">
+		<div style="border-radius:8px; background-color:#ffffff; border: 3px solid #662A48; padding:8px;">
+
+			<h3><i class="ion-location"></i>   Geolocation</h3>
+			<p>The mobile application sorely uses geolocation for the purpose of generating nearby buildings and local map. It is sent only to NUS locations API and Google Static Map API. Your geolocation is not collected, stored or tracked in any other manner.</p>
+			<h4>Please be aware of your surroundings and have fun exploring NUS    <i class="ion-heart"></i></h4>
+		</div>
 	</ion-content>
 </ion-view>
