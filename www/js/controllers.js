@@ -344,313 +344,313 @@ angular.module('app.controllers', ['ngCordova', 'ngStorage'])
     name : 'Arts Tee',
     image: 'img/item/bag.png',
     description: 'Arts pride',
-    collected: true
+    collected: false
   },
   {
     name : 'Chinese Manuscript',
     image: 'img/item/bag.png',
     description: 'Mastering kungfu one page at a time',
-    collected: true
+    collected: false
   },
   {
     name : 'Dragonball',
     image: 'img/item/bag.png',
     description: "It's rumoured that you can collect them if you get all A+",
-    collected: true
+    collected: false
   },
   {
     name : 'Magic stick',
     image: 'img/item/bag.png',
     description: 'Fabulous, rainbow, sparkles. Transform!! •̀.̫•́✧',
-    collected: true
+    collected: false
   },
   {
     name : 'Lipstick',
     image: 'img/item/bag.png',
     description: 'Lips are on fleek',
-    collected: true
+    collected: false
   },
   {
     name : 'Pink shirt',
     image: 'img/item/bag.png',
     description: 'On Wednesdays, we wear pink.',
-    collected: true
+    collected: false
   },
   {
     name : 'Psychology Textbook',
     image: 'img/item/bag.png',
     description: '"The textbook is a monster", "memorising the whole textbook will give you that A", "they will test everything"',
-    collected: true
+    collected: false
   },
   {
     name : 'Yong Tau Fu tofu',
     image: 'img/item/bag.png',
     description: 'Best tofu from the best ytf',
-    collected: true
+    collected: false
   },
   {
     name : 'Accounting Equation',
     image: 'img/item/bag.png',
     description: 'It fell from the sky and now you understand. Assets = Liabilities + Stockholders’ Equity',
-    collected: true
+    collected: false
   },
   {
     name : 'Biz Tee',
     image: 'img/item/bag.png',
     description: 'Biz pride',
-    collected: true
+    collected: false
   },
   {
     name : 'Blazer',
     image: 'img/item/bag.png',
     description: 'Looking smart for the part',
-    collected: true
+    collected: false
   },
   {
     name : 'Class participation',
     image: 'img/item/bag.png',
     description: 'Source of so much stresss',
-    collected: true
+    collected: false
   },
   {
     name : 'Instagram post',
     image: 'img/item/bag.png',
     description: "I'd like to thank all 5 of my project group. This sem was tough but we did it together<3",
-    collected: true
+    collected: false
   },
   {
     name : 'Laser pointer',
     image: 'img/item/bag.png',
     description: 'Presentation weaponzs',
-    collected: true
+    collected: false
   },
   {
     name : 'Wallet',
     image: 'img/item/bag.png',
     description: 'Even their wallets look so sleek',
-    collected: true
+    collected: false
   },
   {
     name : 'Com Tee',
     image: 'img/item/bag.png',
     description: 'Computing pride',
-    collected: true
+    collected: false
   },
   {
     name : 'Commitment',
     image: 'img/item/bag.png',
     description: 'Such commitment wow. Can revert?',
-    collected: true
+    collected: false
   },
   {
     name : 'Driod power',
     image: 'img/item/bag.png',
     description: 'Random green driod appeared and brought you 2% battery',
-    collected: true
+    collected: false
   },
   {
     name : 'Java bean',
     image: 'img/item/bag.png',
     description: 'Not sure if coffee bean or Soccat poop..',
-    collected: true
+    collected: false
   },
   {
     name : 'Keyboard',
     image: 'img/item/bag.png',
     description: 'Keyboard with rainbow backlight. #keyboardgoals',
-    collected: true
+    collected: false
   },
   {
     name : 'Mouse',
     image: 'img/item/bag.png',
     description: 'Mouse emitting sparkly rainbow spectrum of light. #mousegoals',
-    collected: true
+    collected: false
   },
   {
     name : 'Snowman',
     image: 'img/item/bag.png',
     description: 'Brr.. Why is it so cold in com. Regret not bringing a jacket..',
-    collected: true
+    collected: false
   },
   {
     name : 'Copics',
     image: 'img/item/bag.png',
     description: 'Fancy markers for artsy sketches',
-    collected: true
+    collected: false
   },
   {
     name : 'Pen knife',
     image: 'img/item/bag.png',
     description: 'You never know when you need to stab someone.',
-    collected: true
+    collected: false
   },
   {
     name : 'SDE Tee',
     image: 'img/item/bag.png',
     description: "Leaders of tomorrow's built environment.",
-    collected: true
+    collected: false
   },
   {
     name : 'Sketchbook',
     image: 'img/item/bag.png',
     description: 'To put ideas down onto paper',
-    collected: true
+    collected: false
   },
   {
     name : 'Arduino board',
     image: 'img/item/bag.png',
     description: 'Smells of electrical components and prototyping',
-    collected: true
+    collected: false
   },
   {
     name : 'Quadcopter',
     image: 'img/item/bag.png',
     description: 'Essential item of any engineering department',
-    collected: true
+    collected: false
   },
   {
     name : 'Engine Tee',
     image: 'img/item/bag.png',
     description: 'Engineering!!',
-    collected: true
+    collected: false
   },
   {
     name : 'lightbulb',
     image: 'img/item/bag.png',
     description: 'We got the tools for your lightbulb',
-    collected: true
+    collected: false
   },
   {
     name : 'Raspberrypi',
     image: 'img/item/bag.png',
     description: 'Apparently not the edible type of pie',
-    collected: true
+    collected: false
   },
   {
     name : 'Spanner',
     image: 'img/item/bag.png',
     description: 'We got the spanner for your ideas',
-    collected: true
+    collected: false
   },
   {
     name : 'weird blob of plastic',
     image: 'img/item/bag.png',
     description: '3D printing gone wrong',
-    collected: true
+    collected: false
   },
   {
     name : 'Dino bones',
     image: 'img/item/bag.png',
     description: 'Marvelous skeleton of a long dead Sauropod',
-    collected: true
+    collected: false
   },
   {
     name : 'Jubilee Whale',
     image: 'img/item/bag.png',
     description: 'washed on shore 10 July 2015',
-    collected: true
+    collected: false
   },
   {
     name : 'Ayam Penyet',
     image: 'img/item/bag.png',
     description: 'Super good and delish',
-    collected: true
+    collected: false
   },
   {
     name : 'Beaker',
     image: 'img/item/bag.png',
     description: 'Can I drink tea in this?',
-    collected: true
+    collected: false
   },
   {
     name : 'Homework7',
     image: 'img/item/bag.png',
     description: 'CCW walks past and passes you a hw',
-    collected: true
+    collected: false
   },
   {
     name : 'Lab report',
     image: 'img/item/bag.png',
     description: 'What is lab report? Can eat?',
-    collected: true
+    collected: false
   },
   {
     name : 'Linear algebra hw',
     image: 'img/item/bag.png',
     description: 'Looking at the homework that seems hastily scribled with answers, it fills you with DETERMINANTS.',
-    collected: true
+    collected: false
   },
   {
     name : 'Sci Tee',
     image: 'img/item/bag.png',
     description: 'Sci fac is the best fac!!',
-    collected: true
+    collected: false
   },
   {
     name : 'Soy sauce',
     image: 'img/item/bag.png',
     description: 'Why is there soy sauce? Kikkoman brand. Maybe its from science...',
-    collected: true
+    collected: false
   },
   {
     name : 'Cake',
     image: 'img/item/bag.png',
     description: 'Sweet treat during study breaks',
-    collected: true
+    collected: false
   },
   {
     name : 'Recycled clothing',
     image: 'img/item/bag.png',
     description: 'Please recycle textiles at utown!',
-    collected: true
+    collected: false
   },
   {
     name : 'Snowstorm',
     image: 'img/item/bag.png',
     description: 'What is this fabulous throne?? Personal flying machine built by Team FrogWorks.',
-    collected: true
+    collected: false
   },
   {
     name : 'Starbux card',
     image: 'img/item/bag.png',
     description: 'Seems like someone misplaced it. Only has $0.01 value left..',
-    collected: true
+    collected: false
   },
   {
     name : 'Dentisry Tee',
     image: 'img/item/bag.png',
     description: 'Dentistry family',
-    collected: true
+    collected: false
   },
   {
     name : 'email',
     image: 'img/item/bag.png',
     description: 'You received an email! Reminder to join whatever event x100!!',
-    collected: true
+    collected: false
   },
   {
     name : 'Kylie Jenner lipkit',
     image: 'img/item/bag.png',
     description: 'Like, literally so cute when you put them on ',
-    collected: true
+    collected: false
   },
   {
     name : 'Law Tee',
     image: 'img/item/bag.png',
     description: 'Law school the best school',
-    collected: true
+    collected: false
   },
   {
     name : 'Medicine Tee',
     image: 'img/item/bag.png',
     description: 'Med school',
-    collected: true
+    collected: false
   },
   {
     name : 'pen',
     image: 'img/item/bag.png',
     description: 'Pen left behind in lecture theatre, looks sad..',
-    collected: true
+    collected: false
   }];
 
   $scope.showAlert = function(name, img, des, col) {
