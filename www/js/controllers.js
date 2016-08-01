@@ -39,7 +39,7 @@ angular.module('app.controllers', ['ngCordova', 'ngStorage']).run(function($root
     name : 'Psychology Textbook',
     image: 'img/item/bag.png',
     description: '"The textbook is a monster", "memorising the whole textbook will give you that A", "they will test everything"',
-    collected: false
+    collected: true
   },
   {
     name : 'Yong Tau Fu tofu',
