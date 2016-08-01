@@ -175,6 +175,7 @@ angular.module('app.controllers', ['ngCordova', 'ngStorage'])
 
   $scope.forage = function($localStorage) {
     $scope.remainingForages = $scope.remainingForages - 1;
+    $localStorage.items[0].collected = true;
     if ($scope.remainingForages == 0) {
       $scope.remainingForages = 5;
     }
@@ -347,9 +348,9 @@ angular.module('app.controllers', ['ngCordova', 'ngStorage'])
   });
 })
 
-.controller('itemsCtrl', function($scope, $ionicPopover, $ionicPopup) {
+.controller('itemsCtrl', function($scope, $ionicPopover, $ionicPopup, $localStorage) {
 
-  $scope.items = [ {
+  $localStorage.items = [ {
     name : 'Arts Tee',
     image: 'img/item/bag.png',
     description: 'Arts pride',
