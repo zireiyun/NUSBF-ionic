@@ -311,6 +311,7 @@ angular.module('app.controllers', ['ngCordova', 'ngStorage']).run(function($root
     description: 'Pen left behind in lecture theatre, looks sad..',
     collected: false
   }]; 
+  $rootScope.charName = "";
 })
 
 
@@ -1085,7 +1086,7 @@ var getArea = function(code){
   });
 })
 
-.controller('skillsCtrl', function($scope, $ionicPopover) {
+.controller('skillsCtrl', function($scope, $ionicPopover, $ionicPopup, $rootScope) {
 
   // .fromTemplate() method
   var template = '<ion-popover-view><ion-header-bar> <h1 class="title">My Popover Title</h1> </ion-header-bar> <ion-content> Hello! </ion-content></ion-popover-view>';
@@ -1100,6 +1101,11 @@ var getArea = function(code){
   }).then(function(popover) {
     $scope.popover = popover;
   });
+
+  $scope.yourName; 
+  $scope.submit = function(givenInput) {
+    $scope.yourName = givenInput;
+  };
 
 
   $scope.openPopover = function($event) {
