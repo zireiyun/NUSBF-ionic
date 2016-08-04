@@ -311,11 +311,7 @@ angular.module('app.controllers', ['ngCordova', 'ngStorage']).run(function($root
     description: 'Pen left behind in lecture theatre, looks sad..',
     collected: false
   }]; 
-<<<<<<< HEAD
-  $rootScope.charName = "";
-=======
 
->>>>>>> origin/master
 })
 
 
