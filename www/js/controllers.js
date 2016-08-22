@@ -1,33 +1,33 @@
 angular.module('app.controllers', ['ngCordova', 'ngStorage']).run(function($rootScope) {
   $rootScope.items = [ {
     name : 'Arts Tee',
-    image: 'img/item/bag.png',
+    image: 'img/item/fass_shirt.png',
     description: 'Arts pride',
-    collected: false
+    collected: true
   },
   {
     name : 'Chinese Manuscript',
-    image: 'img/item/bag.png',
+    image: 'img/item/manuscript.png',
     description: 'Mastering kungfu one page at a time',
-    collected: false
+    collected: true
   },
   {
     name : 'Dragonball',
-    image: 'img/item/bag.png',
+    image: 'img/item/dragonball.png',
     description: "It's rumoured that you can collect them if you get all A+",
-    collected: false
+    collected: true
   },
   {
     name : 'Magic stick',
-    image: 'img/item/bag.png',
+    image: 'img/item/magic_stick.png',
     description: 'Fabulous, rainbow, sparkles. Transform!! •̀.̫•́✧',
-    collected: false
+    collected: true
   },
   {
     name : 'Lipstick',
-    image: 'img/item/bag.png',
+    image: 'img/item/lipstick.png',
     description: 'Lips are on fleek',
-    collected: false
+    collected: true
   },
   {
     name : 'Pink shirt',
