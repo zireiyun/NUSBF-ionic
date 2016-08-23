@@ -31,117 +31,117 @@ angular.module('app.controllers', ['ngCordova', 'ngStorage']).run(function($root
   },
   {
     name : 'Pink shirt',
-    image: 'img/item/bag.png',
+    image: 'img/item/pink_shirt.png',
     description: 'On Wednesdays, we wear pink.',
-    collected: false
+    collected: true
   },
   {
     name : 'Psychology Textbook',
-    image: 'img/item/bag.png',
+    image: 'img/item/book.png',
     description: '"The textbook is a monster", "memorising the whole textbook will give you that A", "they will test everything"',
-    collected: false
+    collected: true
   },
   {
     name : 'Yong Tau Fu tofu',
-    image: 'img/item/bag.png',
+    image: 'img/item/tofu.png',
     description: 'Best tofu from the best ytf',
-    collected: false
+    collected: true
   },
   {
     name : 'Accounting Equation',
-    image: 'img/item/bag.png',
+    image: 'img/item/accounting_equation.png',
     description: 'It fell from the sky and now you understand. Assets = Liabilities + Stockholders’ Equity',
-    collected: false
+    collected: true
   },
   {
     name : 'Biz Tee',
-    image: 'img/item/bag.png',
+    image: 'img/item/biz_tee.png',
     description: 'Biz pride',
-    collected: false
+    collected: true
   },
   {
     name : 'Blazer',
-    image: 'img/item/bag.png',
+    image: 'img/item/blazer.png',
     description: 'Looking smart for the part',
-    collected: false
+    collected: true
   },
   {
     name : 'Class participation',
-    image: 'img/item/bag.png',
+    image: 'img/item/class.png',
     description: 'Source of so much stresss',
-    collected: false
+    collected: true
   },
   {
     name : 'Instagram post',
-    image: 'img/item/bag.png',
+    image: 'img/item/instagram.png',
     description: "I'd like to thank all 5 of my project group. This sem was tough but we did it together<3",
-    collected: false
+    collected: true
   },
   {
     name : 'Laser pointer',
-    image: 'img/item/bag.png',
+    image: 'img/item/laser-pointer.png',
     description: 'Presentation weaponzs',
-    collected: false
+    collected: true
   },
   {
     name : 'Wallet',
-    image: 'img/item/bag.png',
+    image: 'img/item/wallet.png',
     description: 'Even their wallets look so sleek',
-    collected: false
+    collected: true
   },
   {
     name : 'Com Tee',
-    image: 'img/item/bag.png',
+    image: 'img/item/com_tee.png',
     description: 'Computing pride',
-    collected: false
+    collected: true
   },
   {
     name : 'Commitment',
-    image: 'img/item/bag.png',
+    image: 'img/item/rose.png',
     description: 'Such commitment wow. Can revert?',
-    collected: false
+    collected: true
   },
   {
-    name : 'Driod power',
-    image: 'img/item/bag.png',
-    description: 'Random green driod appeared and brought you 2% battery',
-    collected: false
+    name : 'Droid power',
+    image: 'img/item/android.png',
+    description: 'Random green droid appeared and brought you 2% battery',
+    collected: true
   },
   {
     name : 'Java bean',
     image: 'img/item/javabean.png',
     description: 'Not sure if coffee bean or Soccat poop..',
-    collected: false
+    collected: true
   },
   {
     name : 'Keyboard',
-    image: 'img/item/bag.png',
+    image: 'img/item/piano.png',
     description: 'Keyboard with rainbow backlight. #keyboardgoals',
-    collected: false
+    collected: true
   },
   {
     name : 'Mouse',
-    image: 'img/item/bag.png',
+    image: 'img/item/mouse.png',
     description: 'Mouse emitting sparkly rainbow spectrum of light. #mousegoals',
-    collected: false
+    collected: true
   },
   {
     name : 'Snowman',
-    image: 'img/item/bag.png',
+    image: 'img/item/snowman.png',
     description: 'Brr.. Why is it so cold in com. Regret not bringing a jacket..',
-    collected: false
+    collected: true
   },
   {
     name : 'Copics',
-    image: 'img/item/bag.png',
+    image: 'img/item/copic.png',
     description: 'Fancy markers for artsy sketches',
-    collected: false
+    collected: true
   },
   {
     name : 'Pen knife',
-    image: 'img/item/bag.png',
+    image: 'img/item/penknife.png',
     description: 'You never know when you need to stab someone.',
-    collected: false
+    collected: true
   },
   {
     name : 'SDE Tee',
@@ -151,93 +151,93 @@ angular.module('app.controllers', ['ngCordova', 'ngStorage']).run(function($root
   },
   {
     name : 'Sketchbook',
-    image: 'img/item/bag.png',
+    image: 'img/item/sketchbook.png',
     description: 'To put ideas down onto paper',
-    collected: false
+    collected: true
   },
   {
     name : 'Arduino board',
-    image: 'img/item/bag.png',
+    image: 'img/item/arduino.png',
     description: 'Smells of electrical components and prototyping',
-    collected: false
+    collected: true
   },
   {
     name : 'Quadcopter',
-    image: 'img/item/bag.png',
+    image: 'img/item/drone.png',
     description: 'Essential item of any engineering department',
-    collected: false
+    collected: true
   },
   {
     name : 'Engine Tee',
-    image: 'img/item/bag.png',
+    image: 'img/item/engine_tee.png',
     description: 'Engineering!!',
-    collected: false
+    collected: true
   },
   {
     name : 'lightbulb',
-    image: 'img/item/bag.png',
+    image: 'img/item/bulb.png',
     description: 'We got the tools for your lightbulb',
-    collected: false
+    collected: true
   },
   {
     name : 'Raspberrypi',
-    image: 'img/item/bag.png',
+    image: 'img/item/raspberrypi.png',
     description: 'Apparently not the edible type of pie',
-    collected: false
+    collected: true
   },
   {
-    name : 'Spanner',
-    image: 'img/item/bag.png',
-    description: 'We got the spanner for your ideas',
-    collected: false
+    name : 'Tools',
+    image: 'img/item/tools.png',
+    description: 'We got the tools for your ideas',
+    collected: true
   },
   {
     name : 'weird blob of plastic',
-    image: 'img/item/bag.png',
+    image: 'img/item/blob.png',
     description: '3D printing gone wrong',
-    collected: false
+    collected: true
   },
   {
     name : 'Dino bones',
-    image: 'img/item/bag.png',
+    image: 'img/item/dinobone.png',
     description: 'Marvelous skeleton of a long dead Sauropod',
-    collected: false
+    collected: true
   },
   {
     name : 'Jubilee Whale',
-    image: 'img/item/bag.png',
+    image: 'img/item/whale.png',
     description: 'washed on shore 10 July 2015',
-    collected: false
+    collected: true
   },
   {
     name : 'Ayam Penyet',
-    image: 'img/item/bag.png',
+    image: 'img/item/chicken.png',
     description: 'Super good and delish',
-    collected: false
+    collected: true
   },
   {
     name : 'Beaker',
-    image: 'img/item/bag.png',
+    image: 'img/item/beaker.png',
     description: 'Can I drink tea in this?',
-    collected: false
+    collected: true
   },
   {
     name : 'Homework7',
-    image: 'img/item/bag.png',
+    image: 'img/item/homework.png',
     description: 'CCW walks past and passes you a hw',
-    collected: false
+    collected: true
   },
   {
     name : 'Lab report',
-    image: 'img/item/bag.png',
+    image: 'img/item/report.png',
     description: 'What is lab report? Can eat?',
-    collected: false
+    collected: true
   },
   {
     name : 'Linear algebra hw',
-    image: 'img/item/bag.png',
+    image: 'img/item/identity.png',
     description: 'Looking at the homework that seems hastily scribled with answers, it fills you with DETERMINANTS.',
-    collected: false
+    collected: true
   },
   {
     name : 'Sci Tee',
@@ -247,33 +247,33 @@ angular.module('app.controllers', ['ngCordova', 'ngStorage']).run(function($root
   },
   {
     name : 'Soy sauce',
-    image: 'img/item/bag.png',
+    image: 'img/item/soy.png',
     description: 'Why is there soy sauce? Kikkoman brand. Maybe its from science...',
-    collected: false
+    collected: true
   },
   {
     name : 'Cake',
-    image: 'img/item/bag.png',
+    image: 'img/item/cupcake.png',
     description: 'Sweet treat during study breaks',
-    collected: false
+    collected: true
   },
   {
     name : 'Recycled clothing',
-    image: 'img/item/bag.png',
+    image: 'img/item/clothes.png',
     description: 'Please recycle textiles at utown!',
-    collected: false
+    collected: true
   },
   {
     name : 'Snowstorm',
-    image: 'img/item/bag.png',
+    image: 'img/item/snowstorm.png',
     description: 'What is this fabulous throne?? Personal flying machine built by Team FrogWorks.',
-    collected: false
+    collected: true
   },
   {
     name : 'Starbux card',
-    image: 'img/item/bag.png',
+    image: 'img/item/card.png',
     description: 'Seems like someone misplaced it. Only has $0.01 value left..',
-    collected: false
+    collected: true
   },
   {
     name : 'Dentisry Tee',
@@ -289,9 +289,9 @@ angular.module('app.controllers', ['ngCordova', 'ngStorage']).run(function($root
   },
   {
     name : 'Kylie Jenner lipkit',
-    image: 'img/item/bag.png',
+    image: 'img/item/kylie_jenner.jpg',
     description: 'Like, literally so cute when you put them on ',
-    collected: false
+    collected: true
   },
   {
     name : 'Law Tee',
