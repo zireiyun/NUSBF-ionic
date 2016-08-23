@@ -1,6 +1,6 @@
 <ion-view title="Settings" hide-nav-bar="true" hide-back-button="true" id="page6" class=" " style = "background-image:url(img/background/coral.png)">
-	<ion-content padding="fasle" class="">
-		<button class="button button-positive" ng-click="openPopover($event)" style="display: inline-block; margin-top: 15px; margin-left:15px;">Menu</button>
+	
+		<button class="button button-assertive" ng-click="openPopover($event)" style="display: inline-block; margin-top: 15px; margin-left:15px;">Menu</button>
 		<script id="my-popover.html" type="text/ng-template">
 			<style>.popover {height:280px; width: 280px; background-color: #fbfdfd;}</style>
 			<ion-popover-view>
@@ -32,5 +32,8 @@
 				</ion-content>
 			</ion-popover-view>
 		</script>
+		<ion-content padding="fasle" class="has-footer" style=" margin-top: 80px; margin-right: 5px;  margin-left: 5px;">
+		<h4>Reset progress permanently:</ion-content</h4>
+		<button class="button button-assertive button-block" ng-click="reset()">reset progress</button>
 	</ion-content>
 </ion-view>

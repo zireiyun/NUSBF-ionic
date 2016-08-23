@@ -144,10 +144,10 @@ angular.module('app.controllers', ['ngCordova', 'ngStorage']).run(function($root
     collected: true
   },
   {
-    name : 'SDE Tee',
-    image: 'img/item/bag.png',
+    name : 'NUS mascot Linus',
+    image: 'img/item/lion.jpg',
     description: "Leaders of tomorrow's built environment.",
-    collected: false
+    collected: true
   },
   {
     name : 'Sketchbook',
@@ -241,9 +241,9 @@ angular.module('app.controllers', ['ngCordova', 'ngStorage']).run(function($root
   },
   {
     name : 'Sci Tee',
-    image: 'img/item/bag.png',
+    image: 'img/item/sci.png',
     description: 'Sci fac is the best fac!!',
-    collected: false
+    collected: true
   },
   {
     name : 'Soy sauce',
@@ -276,16 +276,16 @@ angular.module('app.controllers', ['ngCordova', 'ngStorage']).run(function($root
     collected: true
   },
   {
-    name : 'Dentisry Tee',
-    image: 'img/item/bag.png',
-    description: 'Dentistry family',
-    collected: false
+    name : 'Dentisry',
+    image: 'img/item/molar.png',
+    description: 'Teeth health',
+    collected: true
   },
   {
     name : 'email',
-    image: 'img/item/bag.png',
+    image: 'img/item/message.png',
     description: 'You received an email! Reminder to join whatever event x100!!',
-    collected: false
+    collected: true
   },
   {
     name : 'Kylie Jenner lipkit',
@@ -295,21 +295,21 @@ angular.module('app.controllers', ['ngCordova', 'ngStorage']).run(function($root
   },
   {
     name : 'Law Tee',
-    image: 'img/item/bag.png',
+    image: 'img/item/law.png',
     description: 'Law school the best school',
-    collected: false
+    collected: true
   },
   {
-    name : 'Medicine Tee',
-    image: 'img/item/bag.png',
+    name : 'White coat',
+    image: 'img/item/doctor-coat.png',
     description: 'Med school',
-    collected: false
+    collected: true
   },
   {
     name : 'pen',
-    image: 'img/item/bag.png',
+    image: 'img/item/pen.png',
     description: 'Pen left behind in lecture theatre, looks sad..',
-    collected: false
+    collected: true
   }]; 
 
 })
@@ -1056,8 +1056,6 @@ var getArea = function(code){
  var posOptions = {timeout: 10000, enableHighAccuracy: false};
 
  $ionicPlatform.ready(function(){
-
-  //$localStorage.$reset();
   
   if ($localStorage.day != currentDate){
     $scope.loot = "";
@@ -1321,7 +1319,11 @@ var getArea = function(code){
   });
 })
 
-.controller('settingsCtrl', function($scope, $ionicPopover) {
+.controller('settingsCtrl', function($scope, $ionicPopover, $localStorage, $sessionStorage) {
+
+  $scope.reset = function(){
+    $localStorage.$reset();
+  };
 
   // .fromTemplate() method
   var template = '<ion-popover-view><ion-header-bar> <h1 class="title">My Popover Title</h1> </ion-header-bar> <ion-content> Hello! </ion-content></ion-popover-view>';
